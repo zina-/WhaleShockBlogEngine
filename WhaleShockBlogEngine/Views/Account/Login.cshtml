@@ -18,6 +18,7 @@
                 this.send_submit = function () {
                     var encrypted = {};
                     var id_hash = this.get_sha_hash(this.id());
+                    alert(id_hash);
                     var password_hash = this.get_sha_hash(this.password());
                     encrypted.Id = this.get_rsa_encrypted_text(this.rsa_public_key, id_hash);
                     encrypted.Password = this.get_rsa_encrypted_text(this.rsa_public_key, password_hash);
@@ -45,8 +46,8 @@
                     return linebrk(hex2b64(encrypted), 64);
                 },
                 get_sha_hash: function (plain) {
-                    var sha = new jsSha(plain, "TEXT");
-                    var hash = sha.getHash("SHA-256", "TEXT");
+                    var sha = new jsSHA(plain, "TEXT");
+                    var hash = sha.getHash("SHA-256", "B64");
                     return hash;
                 }
             }

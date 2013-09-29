@@ -30,6 +30,8 @@ namespace WhaleShockBlogEngine.Controllers
         [HttpPost]
         public JsonResult Login(AccountModel encrypted)
         {
+            string returning = "";
+
             using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
             {
                 if (Session["PrivateKey"] == null)
@@ -40,10 +42,12 @@ namespace WhaleShockBlogEngine.Controllers
                 rsa.ImportParameters((RSAParameters)Session["PrivateKey"]);
                 var decrypted = rsa.Decrypt(Convert.FromBase64String(encrypted.Id), false);
 
+                returning = Convert.ToBase64String(decrypted);
+
                 Session["PrivateKey"] = null;
             }
 
-            return Json(null);
+            return Json(returning);
         }
 
         // Get: /Account/Regist

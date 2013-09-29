@@ -223,6 +223,11 @@
     <Content Include="Scripts\rsa\prng4.js" />
     <Content Include="Scripts\rsa\rng.js" />
     <Content Include="Scripts\rsa\rsa.js" />
+    <Content Include="Scripts\sha\sha.js" />
+    <Content Include="Scripts\sha\sha1.js" />
+    <Content Include="Scripts\sha\sha256.js" />
+    <Content Include="Scripts\sha\sha512.js" />
+    <Content Include="Scripts\sha\sha_dev.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -236,6 +241,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Account\Regist.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
