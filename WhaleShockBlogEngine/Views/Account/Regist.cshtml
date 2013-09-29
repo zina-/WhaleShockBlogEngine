@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Regist";
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/rsa")
+
+    <script type="text/javascript">
+        $(function () {
+
+            function account_regist_view_model() {
+                this.rsa_public_key = this.get_public_key("@ViewBag.Modulus", "@ViewBag.Exponent");
+
+                this.id = ko.observable("");
+                this.password = ko.observable("");
+                this.id_validate = ko.computed(function () {
+                    if (this.id().length < 3) {
+                        return "too short";
+                    }
+                    else {
+                        return "good";
+                    }
+                }, this);
+                this.password_validate = ko.computed(function () {
+                    if (this.password().length < 6) {
+                        return "too short";
+                    }
+                    else {
+                        return "good";
+                    }
+                }, this);
+
+                this.send_submit = function () {
+                    var encrypted = {};
+                    encrypted.Id = this.get_rsa_encrypted_text(this.rsa_public_key, this.id());
+                    encrypted.Password = this.get_rsa_encrypted_text(this.rsa_public_key, this.password());
+                    var regist_request = $.ajax({
+                        type: "POST",
+                        url: "/Account/Regist",
+                        data: { id: encrypted.Id, password: encrypted.Password }
+                    });
+                    regist_request.done(function (msg) {
+                        alert(msg);
+                    });
+                    regist_request.fail(function (jqXHR, textStatus) {
+                        alert(textStatus);
+                    });
+                }
+            }
+            account_regist_view_model.prototype = {
+                get_public_key: function (modulus, exponent) {
+                    var rsa_public_key = new RSAKey();
+                    rsa_public_key.setPublic(b64tohex(modulus), b64tohex(exponent));
+                    return rsa_public_key;
+                },
+                get_rsa_encrypted_text: function (public_key, plain) {
+                    var encrypted = public_key.encrypt(plain);
+                    return linebrk(hex2b64(encrypted), 64);
+                }
+            }
+
+            ko.applyBindings(new account_regist_view_model());
+
+        });
+    </script>
+}
+
+<p>id <input data-bind="value: id" /><p data-bind="text: id_validate"></p></p>
+<p>password <input data-bind="value: password" /><p data-bind="text: password_validate"></p></p>
+
+<button data-bind="click: send_submit">asdfSs</button>

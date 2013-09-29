@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/rsa")
+    @Scripts.Render("~/bundles/sha")
+
+    <script type="text/javascript">
+        $(function () {
+
+            function account_regist_view_model() {
+                this.rsa_public_key = this.get_public_key("@ViewBag.Modulus", "@ViewBag.Exponent");
+
+                this.id = ko.observable("");
+                this.password = ko.observable("");
+
+                this.send_submit = function () {
+                    var encrypted = {};
+                    var id_hash = this.get_sha_hash(this.id());
+                    var password_hash = this.get_sha_hash(this.password());
+                    encrypted.Id = this.get_rsa_encrypted_text(this.rsa_public_key, id_hash);
+                    encrypted.Password = this.get_rsa_encrypted_text(this.rsa_public_key, password_hash);
+                    var regist_request = $.ajax({
+                        type: "POST",
+                        url: "/Account/Login",
+                        data: { id: encrypted.Id, password: encrypted.Password }
+                    });
+                    regist_request.done(function (msg) {
+                        alert(msg);
+                    });
+                    regist_request.fail(function (jqXHR, textStatus) {
+                        alert(textStatus);
+                    });
+                }
+            }
+            account_regist_view_model.prototype = {
+                get_public_key: function (modulus, exponent) {
+                    var rsa_public_key = new RSAKey();
+                    rsa_public_key.setPublic(b64tohex(modulus), b64tohex(exponent));
+                    return rsa_public_key;
+                },
+                get_rsa_encrypted_text: function (public_key, plain) {
+                    var encrypted = public_key.encrypt(plain);
+                    return linebrk(hex2b64(encrypted), 64);
+                },
+                get_sha_hash: function (plain) {
+                    var sha = new jsSha(plain, "TEXT");
+                    var hash = sha.getHash("SHA-256", "TEXT");
+                    return hash;
+                }
+            }
+
+            ko.applyBindings(new account_regist_view_model());
+
+        });
+    </script>
+}
+
+<h2>Login</h2>
+
+<p>id
+    <input data-bind="value: id" /></p>
+<p>password
+    <input data-bind="value: password" /></p>
+<button data-bind="click: send_submit">asdfSs</button>
