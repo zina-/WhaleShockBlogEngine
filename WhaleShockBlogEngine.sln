@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhaleShockBlogEngine", "WhaleShockBlogEngine\WhaleShockBlogEngine.csproj", "{0B6A6C83-CC1E-4131-AC5C-914C91443918}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{F792728C-185E-4A4A-999F-19E25244A81F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{0B6A6C83-CC1E-4131-AC5C-914C91443918}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B6A6C83-CC1E-4131-AC5C-914C91443918}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B6A6C83-CC1E-4131-AC5C-914C91443918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F792728C-185E-4A4A-999F-19E25244A81F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F792728C-185E-4A4A-999F-19E25244A81F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F792728C-185E-4A4A-999F-19E25244A81F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F792728C-185E-4A4A-999F-19E25244A81F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

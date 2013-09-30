@@ -42,7 +42,7 @@ namespace WhaleShockBlogEngine.Controllers
                 rsa.ImportParameters((RSAParameters)Session["PrivateKey"]);
                 var decrypted = rsa.Decrypt(Convert.FromBase64String(encrypted.Id), false);
 
-                returning = Convert.ToBase64String(decrypted);
+                returning = Encoding.UTF8.GetString(decrypted);
 
                 Session["PrivateKey"] = null;
             }

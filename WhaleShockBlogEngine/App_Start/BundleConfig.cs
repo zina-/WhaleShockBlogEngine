@@ -49,6 +49,9 @@ namespace WhaleShockBlogEngine
             bundles.Add(new ScriptBundle("~/bundles/sha").Include(
                         "~/Scripts/sha/sha.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/ckeditor").Include(
+                        "~/Scripts/ckeditor/ckeditor.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
                         "~/Scripts/knockout-{version}.js"));
 
