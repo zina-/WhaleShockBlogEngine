@@ -1,5 +1,0 @@
-C:\Workspace\Private\WhaleShockBlogEngine\TestConsole\bin\Debug\TestConsole.exe.config
-C:\Workspace\Private\WhaleShockBlogEngine\TestConsole\bin\Debug\TestConsole.exe
-C:\Workspace\Private\WhaleShockBlogEngine\TestConsole\bin\Debug\TestConsole.pdb
-C:\Workspace\Private\WhaleShockBlogEngine\TestConsole\obj\Debug\TestConsole.exe
-C:\Workspace\Private\WhaleShockBlogEngine\TestConsole\obj\Debug\TestConsole.pdb
