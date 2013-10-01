@@ -1,4 +1,6 @@
-﻿using System.Web;
+﻿using BundleTransformer.Core.Bundles;
+using BundleTransformer.Core.Transformers;
+using System.Web;
 using System.Web.Optimization;
 
 namespace WhaleShockBlogEngine
@@ -8,11 +10,19 @@ namespace WhaleShockBlogEngine
         // Bundling에 대한 자세한 정보는 http://go.microsoft.com/fwlink/?LinkId=254725를 방문하십시오.
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new CustomStyleBundle("~/bundles/base/css").Include(
+                        "~/Content/base/site.less"));
+            //var baseCssBundle = new Bundle("~/bundles/base/css");
+            //baseCssBundle.Include(
+            //            "~/Content/base/site.less");
+            //baseCssBundle.Transforms.Add(new CssTransformer());
+            //bundles.Add(baseCssBundle);
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                        "~/Scripts/jquery-ui-{version}.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+            //            "~/Scripts/jquery-ui-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
@@ -23,21 +33,21 @@ namespace WhaleShockBlogEngine
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            //bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
-            bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
-                        "~/Content/themes/base/jquery.ui.core.css",
-                        "~/Content/themes/base/jquery.ui.resizable.css",
-                        "~/Content/themes/base/jquery.ui.selectable.css",
-                        "~/Content/themes/base/jquery.ui.accordion.css",
-                        "~/Content/themes/base/jquery.ui.autocomplete.css",
-                        "~/Content/themes/base/jquery.ui.button.css",
-                        "~/Content/themes/base/jquery.ui.dialog.css",
-                        "~/Content/themes/base/jquery.ui.slider.css",
-                        "~/Content/themes/base/jquery.ui.tabs.css",
-                        "~/Content/themes/base/jquery.ui.datepicker.css",
-                        "~/Content/themes/base/jquery.ui.progressbar.css",
-                        "~/Content/themes/base/jquery.ui.theme.css"));
+            //bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
+            //            "~/Content/themes/base/jquery.ui.core.css",
+            //            "~/Content/themes/base/jquery.ui.resizable.css",
+            //            "~/Content/themes/base/jquery.ui.selectable.css",
+            //            "~/Content/themes/base/jquery.ui.accordion.css",
+            //            "~/Content/themes/base/jquery.ui.autocomplete.css",
+            //            "~/Content/themes/base/jquery.ui.button.css",
+            //            "~/Content/themes/base/jquery.ui.dialog.css",
+            //            "~/Content/themes/base/jquery.ui.slider.css",
+            //            "~/Content/themes/base/jquery.ui.tabs.css",
+            //            "~/Content/themes/base/jquery.ui.datepicker.css",
+            //            "~/Content/themes/base/jquery.ui.progressbar.css",
+            //            "~/Content/themes/base/jquery.ui.theme.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/rsa").Include(
                         "~/Scripts/rsa/jsbn.js",

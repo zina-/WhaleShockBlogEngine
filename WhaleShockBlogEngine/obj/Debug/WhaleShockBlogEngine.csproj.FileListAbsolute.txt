@@ -87,6 +87,13 @@ C:\Workspace\Private\WhaleShockBlogEngine\WhaleShockBlogEngine\bin\ko\System.Web
 C:\Workspace\Private\WhaleShockBlogEngine\WhaleShockBlogEngine\bin\ko\System.Web.WebPages.Razor.resources.dll
 C:\Workspace\Private\WhaleShockBlogEngine\WhaleShockBlogEngine\bin\ko\EntityFramework.resources.dll
 C:\Workspace\Private\WhaleShockBlogEngine\WhaleShockBlogEngine\bin\ko\System.Web.Providers.resources.dll
-C:\Workspace\Private\WhaleShockBlogEngine\WhaleShockBlogEngine\obj\Debug\WhaleShockBlogEngine.csprojResolveAssemblyReference.cache
 C:\Workspace\Private\WhaleShockBlogEngine\WhaleShockBlogEngine\obj\Debug\WhaleShockBlogEngine.dll
 C:\Workspace\Private\WhaleShockBlogEngine\WhaleShockBlogEngine\obj\Debug\WhaleShockBlogEngine.pdb
+C:\Workspace\Private\WhaleShockBlogEngine\WhaleShockBlogEngine\bin\BundleTransformer.Core.dll
+C:\Workspace\Private\WhaleShockBlogEngine\WhaleShockBlogEngine\bin\BundleTransformer.Less.dll
+C:\Workspace\Private\WhaleShockBlogEngine\WhaleShockBlogEngine\bin\JavaScriptEngineSwitcher.Core.dll
+C:\Workspace\Private\WhaleShockBlogEngine\WhaleShockBlogEngine\bin\ru-ru\BundleTransformer.Core.resources.dll
+C:\Workspace\Private\WhaleShockBlogEngine\WhaleShockBlogEngine\bin\ru-ru\JavaScriptEngineSwitcher.Core.resources.dll
+C:\Workspace\Private\WhaleShockBlogEngine\WhaleShockBlogEngine\bin\JavaScriptEngineSwitcher.V8.dll
+C:\Workspace\Private\WhaleShockBlogEngine\WhaleShockBlogEngine\bin\ru-ru\JavaScriptEngineSwitcher.V8.resources.dll
+C:\Workspace\Private\WhaleShockBlogEngine\WhaleShockBlogEngine\obj\Debug\WhaleShockBlogEngine.csprojResolveAssemblyReference.cache
