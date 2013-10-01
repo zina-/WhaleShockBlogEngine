@@ -4,11 +4,12 @@
 
 @section scripts {
     <script src=@Url.Content("~/Scripts/ckeditor/ckeditor.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/ckeditor/adapters/jquery.js") type="text/javascript"></script>
 
     <script type="text/javascript">
         $(function () {
 
-
+            $("textarea#posting-editor").ckeditor();
 
         });
     </script>
@@ -16,4 +17,4 @@
 
 <h2>Posting</h2>
 
-<textarea class="ckeditor" name="editor" id="editor"></textarea>
+<textarea id="posting-editor" cols="80" rows="50"></textarea>
