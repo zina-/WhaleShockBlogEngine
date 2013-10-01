@@ -73,6 +73,8 @@
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -151,9 +153,28 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\WhaleShockEngineDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WhaleShockEngineDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WhaleShockEngineDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WhaleShockEngineDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WhaleShockEngineDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WhaleShockEngineDataModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\WhaleShockEngineData.mdf" />
+    <Content Include="App_Data\WhaleShockEngineData_log.ldf">
+      <DependentUpon>WhaleShockEngineData.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -236,6 +257,23 @@
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
+    <EntityDeploy Include="Models\WhaleShockEngineDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WhaleShockEngineDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\WhaleShockEngineDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WhaleShockEngineDataModel.edmx</DependentUpon>
+      <LastGenOutput>WhaleShockEngineDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\WhaleShockEngineDataModel.edmx.diagram">
+      <DependentUpon>WhaleShockEngineDataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\WhaleShockEngineDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WhaleShockEngineDataModel.edmx</DependentUpon>
+      <LastGenOutput>WhaleShockEngineDataModel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
@@ -513,11 +551,12 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Admin\Posting.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -40,7 +40,7 @@ namespace WhaleShockBlogEngine.Controllers
                 }
 
                 rsa.ImportParameters((RSAParameters)Session["PrivateKey"]);
-                var decrypted = rsa.Decrypt(Convert.FromBase64String(encrypted.Id), false);
+                var decrypted = rsa.Decrypt(Convert.FromBase64String(encrypted.Hash_Id), false);
 
                 returning = Encoding.UTF8.GetString(decrypted);
 
@@ -80,7 +80,7 @@ namespace WhaleShockBlogEngine.Controllers
                 }
 
                 rsa.ImportParameters((RSAParameters)Session["PrivateKey"]);
-                var decrypted = rsa.Decrypt(Convert.FromBase64String(encrypted.Id), false);
+                var decrypted = rsa.Decrypt(Convert.FromBase64String(encrypted.Hash_Id), false);
                 using (SHA256 sha = new SHA256Managed())
                 {
                     var hash = sha.ComputeHash(decrypted);

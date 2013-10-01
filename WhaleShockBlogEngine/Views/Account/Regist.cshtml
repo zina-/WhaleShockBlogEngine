@@ -32,12 +32,12 @@
 
                 this.send_submit = function () {
                     var encrypted = {};
-                    encrypted.Id = this.get_rsa_encrypted_text(this.rsa_public_key, this.id());
-                    encrypted.Password = this.get_rsa_encrypted_text(this.rsa_public_key, this.password());
+                    encrypted.HashId = this.get_rsa_encrypted_text(this.rsa_public_key, this.id());
+                    encrypted.HashPassword = this.get_rsa_encrypted_text(this.rsa_public_key, this.password());
                     var regist_request = $.ajax({
                         type: "POST",
                         url: "/Account/Regist",
-                        data: { id: encrypted.Id, password: encrypted.Password }
+                        data: { hash_id: encrypted.HashId, hash_password: encrypted.HashPassword }
                     });
                     regist_request.done(function (msg) {
                         alert(msg);
